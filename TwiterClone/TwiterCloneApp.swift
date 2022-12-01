@@ -13,6 +13,7 @@ struct TwiterCloneApp: App {
         WindowGroup {
             //ContentView()
             Home()
+            //CreateTweetView()
         }
     }
 }
