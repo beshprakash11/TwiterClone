@@ -9,7 +9,20 @@ import SwiftUI
 
 struct Feed: View {
     var body: some View {
-        Text("Hello, From Feed!")
+        ScrollView(.vertical, showsIndicators: false){
+            VStack(alignment: .leading,spacing: 10) {//MSG_VS
+                TweetCellView(tweet: "Hey Tim, are those regular glasses?", tweetImage: "post")
+                    
+                Divider()
+                ForEach(1...20, id: \.self){_ in
+                    TweetCellView(tweet: sampleText)
+                    Divider()                    
+                }
+            }//:MSG_VS
+            .padding(.top)
+            .padding(.horizontal)
+            .zIndex(0)
+        }//FEED_SCV
     }
 }
 

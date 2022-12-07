@@ -19,6 +19,7 @@ struct Home: View {
                         .onTapGesture {
                             self.selectedIndex = 0
                         }
+                        .navigationBarHidden(true)
                         .tabItem {
                             if (selectedIndex == 0){
                                 Image("Home")
@@ -34,6 +35,7 @@ struct Home: View {
                         .onTapGesture {
                             self.selectedIndex = 1
                         }
+                        .navigationBarHidden(true)
                         .tabItem{
                             if (selectedIndex != 1){
                                 Image("Search")
@@ -49,6 +51,7 @@ struct Home: View {
                         .onTapGesture {
                             self.selectedIndex = 2
                         }
+                        .navigationBarHidden(true)
                         .tabItem{
                             if (selectedIndex != 2){
                                 Image("Notifications")
@@ -64,6 +67,7 @@ struct Home: View {
                         .onTapGesture {
                             self.selectedIndex = 3
                         }
+                        .navigationBarHidden(true)
                         .tabItem{
                             if (selectedIndex != 3){
                                 Image("Messages")

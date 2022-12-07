@@ -12,8 +12,10 @@ struct TwiterCloneApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            Home()
+            //Home()
             //CreateTweetView()
+            MainView()
+            //SlideMenu()
         }
     }
 }
