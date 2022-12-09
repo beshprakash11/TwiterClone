@@ -16,6 +16,10 @@ struct TwiterCloneApp: App {
             //CreateTweetView()
             MainView()
             //SlideMenu()
+            //UserProfile()
+            //WelcomeView()
+            //RegisterView()
+            //LoginView()
         }
     }
 }
