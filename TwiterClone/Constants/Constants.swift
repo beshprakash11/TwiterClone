@@ -7,6 +7,8 @@
 
 import Foundation
 
-let BASE_URL = "http://192.168.178.30:3000/"
-
+//let BASE_URL = "http://192.168.178.30:3000/"
+let BASE_URL = "http://172.20.10.6:3000/"
 let POST_URL = BASE_URL + "users"
+let LOGIN_URL = BASE_URL + "users/login"
+let USER_BYID = BASE_URL + "users/"

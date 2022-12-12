@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject var viewModel = AuthViewModel()
-    //@State var username = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     @State var name = ""
     @State var email = ""
     @State var password = ""

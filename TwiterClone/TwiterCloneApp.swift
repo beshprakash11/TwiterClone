@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct TwiterCloneApp: App {
+    init(){
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+    }
     var body: some Scene {
         WindowGroup {
             //ContentView()
@@ -18,8 +22,10 @@ struct TwiterCloneApp: App {
             //SlideMenu()
             //UserProfile()
             //WelcomeView()
-            RegisterView()
+            //RegisterView()
             //LoginView()
+            ContentView().environmentObject(AuthViewModel.shared)
+            
         }
     }
 }

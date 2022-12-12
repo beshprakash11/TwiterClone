@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     @State var email = ""
     @State var password = ""
     @State var emailDone:Bool = false
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        if !emailDone && email.isEmpty{
+        if !emailDone{//} && email.isEmpty{
             VStack{
                 VStack{
                     //MARKER: Header field
@@ -57,7 +58,7 @@ struct LoginView: View {
                             .frame(width: 360, height: 40)
                             .foregroundColor(Color(red: 29 / 255, green: 161 / 255, blue: 242 / 255))
                             .overlay {
-                                Text("Login")
+                                Text("Next")
                                     .foregroundColor(.white)
                             }
                     })
@@ -103,13 +104,13 @@ struct LoginView: View {
                 //MARK: Action button field
                 VStack{
                     Button(action: {
-                        self.emailDone.toggle()
+                            self.viewModel.login(email: email, password: password)
                     }, label: {
                         Capsule()
                             .frame(width: 360, height: 40)
                             .foregroundColor(Color(red: 29 / 255, green: 161 / 255, blue: 242 / 255))
                             .overlay {
-                                Text("Nex")
+                                Text("Login")
                                     .foregroundColor(.white)
                             }
                     })
