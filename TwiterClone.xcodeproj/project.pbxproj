@@ -37,6 +37,10 @@
 		96A4174329405FBB00D08107 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A4174229405FBB00D08107 /* MenuButton.swift */; };
 		96A4174529408D8200D08107 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A4174429408D8200D08107 /* UserProfile.swift */; };
 		96A417472940955600D08107 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A417462940955600D08107 /* BlurView.swift */; };
+		96CA299D2946F5EF00A58F05 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA299C2946F5EF00A58F05 /* AuthViewModel.swift */; };
+		96CA299F2946F5FC00A58F05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA299E2946F5FC00A58F05 /* User.swift */; };
+		96CA29A12947058C00A58F05 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA29A02947058C00A58F05 /* AuthServices.swift */; };
+		96CA29A4294707AF00A58F05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA29A3294707AF00A58F05 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +75,10 @@
 		96A4174229405FBB00D08107 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		96A4174429408D8200D08107 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		96A417462940955600D08107 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		96CA299C2946F5EF00A58F05 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		96CA299E2946F5FC00A58F05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		96CA29A02947058C00A58F05 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		96CA29A3294707AF00A58F05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 		969061E429308950003044C8 /* TwiterClone */ = {
 			isa = PBXGroup;
 			children = (
+				96CA29A22947079E00A58F05 /* Constants */,
 				969061F729308FDE003044C8 /* Extensions */,
 				969061F629308FC7003044C8 /* Services */,
 				969061F529308FB7003044C8 /* Model */,
@@ -142,6 +151,7 @@
 		969061F429308FA6003044C8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				96CA299C2946F5EF00A58F05 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -149,6 +159,7 @@
 		969061F529308FB7003044C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				96CA299E2946F5FC00A58F05 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +167,7 @@
 		969061F629308FC7003044C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96CA29A02947058C00A58F05 /* AuthServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -257,6 +269,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		96CA29A22947079E00A58F05 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				96CA29A3294707AF00A58F05 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,7 +354,9 @@
 				96A2453D293F0A50005233A8 /* MessageCell.swift in Sources */,
 				9647C89A293DC0DD00B66419 /* SearchCell.swift in Sources */,
 				96A2453F293F0D93005233A8 /* TapBar.swift in Sources */,
+				96CA29A4294707AF00A58F05 /* Constants.swift in Sources */,
 				96A24543293F13BE005233A8 /* SlideMenu.swift in Sources */,
+				96CA299F2946F5FC00A58F05 /* User.swift in Sources */,
 				961609BA293875090013B783 /* CreateTweetView.swift in Sources */,
 				96906206293098F2003044C8 /* SearchView.swift in Sources */,
 				9647C89E293DCD8100B66419 /* SearchUserCell.swift in Sources */,
@@ -347,10 +369,12 @@
 				96A417472940955600D08107 /* BlurView.swift in Sources */,
 				9647C8A0293DCF6100B66419 /* Extension.swift in Sources */,
 				9690620229309227003044C8 /* Home.swift in Sources */,
+				96CA29A12947058C00A58F05 /* AuthServices.swift in Sources */,
 				961609BC29387AE10013B783 /* MultilineTextField.swift in Sources */,
 				9698794D2942F22D00881D77 /* WelcomeView.swift in Sources */,
 				9699073729431AB300090179 /* LoginView.swift in Sources */,
 				969061E629308950003044C8 /* TwiterCloneApp.swift in Sources */,
+				96CA299D2946F5EF00A58F05 /* AuthViewModel.swift in Sources */,
 				9647C8A2293DD49700B66419 /* NotificationCell.swift in Sources */,
 				9690620829309901003044C8 /* NotificationsView.swift in Sources */,
 				96987953294307E200881D77 /* SecureAuthTextField.swift in Sources */,

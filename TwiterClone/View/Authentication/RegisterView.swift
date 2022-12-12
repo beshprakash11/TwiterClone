@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @StateObject var viewModel = AuthViewModel()
+    //@State var username = ""
     @State var name = ""
     @State var email = ""
     @State var password = ""
@@ -55,7 +57,7 @@ struct RegisterView: View {
                 HStack{
                     Spacer()
                     Button(action: {
-                        
+                        self.viewModel.register(username: name, name: name, email: email, password: password)
                     }, label: {
                         Capsule()
                             .frame(width: 60, height: 30, alignment: .center)
