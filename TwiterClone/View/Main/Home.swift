@@ -103,7 +103,7 @@ struct Home: View {
                 .padding(.bottom, 65)
             }//:ZStack
             .sheet(isPresented: $showCreateTweet, content: {
-                CreateTweetView(text: text)
+                CreateTweetView(showCreateTweet: $showCreateTweet, text: text)
             })
         }//:VStack
     }

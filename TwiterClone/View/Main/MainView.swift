@@ -60,10 +60,4 @@ struct MainView: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-/*
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView(user: "Besh")
-    }
-}
-*/
+

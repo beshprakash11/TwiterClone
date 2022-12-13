@@ -8,16 +8,28 @@
 import Foundation
 import SwiftUI
 
+enum AuthenticationError: Error{
+    case invalidCredentials
+    case custom(errorMessage: String)
+}
+
 enum NetworkError: Error{
     case invalidURL
     case noData
     case decodingError
 }
 
-enum AuthenticationError: Error{
-    case invalidCredentials
-    case custom(errorMessage: String)
+struct LoginRequestBody: Codable{
+    let username: String
+    let password: String
 }
+
+struct LoginResponse: Codable{
+    let token: String?
+    let message: String?
+    let success: Bool?
+}
+
 public class AuthServices{
     public static var requestDomain = ""
     
@@ -76,13 +88,15 @@ public class AuthServices{
                 
             }
             
+            completion(.success(data))
+            
             do{
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]{
-                    debugPrint(json)
+                    //debugPrint(json)
                 }
             }catch let error as NSError{
                 completion(.failure(.decodingError))
-                debugPrint(error)
+                //debugPrint(error)
             }
             
         }
@@ -94,7 +108,7 @@ public class AuthServices{
     static func fetchUser(id: String, completion: @escaping (_ result: Result<Data, AuthenticationError>) -> Void){
         let urlString = URL(string: USER_BYID + "\(id)")!
         
-        debugPrint(urlString)
+        //debugPrint(urlString)
         var urlRequest = URLRequest(url: urlString)
         
         let session = URLSession.shared
@@ -105,15 +119,16 @@ public class AuthServices{
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let task = session.dataTask(with: urlRequest) { data, res, err in
-            guard let err = err else { return }
+            guard err == nil else { return }
             guard let data = data else {
-                return
                 completion(.failure(.invalidCredentials))
+                return
+                
             }
             completion(.success(data))
             
             do{
-                if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]{
+                if try JSONSerialization.jsonObject(with: data, options: .mutableContainers) is [String: Any]{
                     
                 }
             }catch let err{
