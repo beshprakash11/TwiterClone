@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct CreateTweetView: View {
-    @Binding var showCreateTweet: Bool
-    @State var text = ""
     @ObservedObject var viewModel = CreateTweetViewModel()
     
+    @Binding var showCreateTweet: Bool
+    @State var text = ""
+    
+    //image picker
+    @State var imagePickerPresented: Bool = false
+    @State var selectedImage: UIImage?
+    @State var postImage: Image?
+    
+    @State var width = UIScreen.main.bounds.width
+    @State var height = UIScreen.main.bounds.height
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack{//:CreateTweet_VS
@@ -25,7 +33,7 @@ struct CreateTweetView: View {
                 Spacer()
                 Button(action: {
                     if text != ""{
-                        self.viewModel.uploadPost(text: text)
+                        self.viewModel.uploadPost(text: text, image: selectedImage)
                     }
                     self.showCreateTweet.toggle()
                 }, label: {
@@ -38,15 +46,50 @@ struct CreateTweetView: View {
                 
             }//:CT_HS
             MultilineTextField(text: $text)
+            ScrollView{
+                
+                
+                //Image picker
+                if postImage == nil{
+                    Button(action: {
+                        self.imagePickerPresented.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 70, height: 70)
+                            .clipped()
+                            .padding(.top)
+                            .foregroundColor(.black)
+                    }).sheet(isPresented: $imagePickerPresented) {
+                        loadImage()
+                    }content: {
+                        ImagePicker(image: $selectedImage)
+                    }
+                }else if let image = postImage{
+                    VStack{
+                        HStack(alignment: .top) {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .padding(.horizontal)
+                                .frame(width: width * 0.9, height: height * 0.7)
+                                .cornerRadius(16)
+                                .clipped()
+                        }
+                        Spacer()
+                    }
+                }
+            }//:INVS
         }//:CreateTweet_VS
         .padding()
     }
 }
 
-/*
- struct CreateTweetView_Previews: PreviewProvider {
- static var previews: some View {
- CreateTweetView()
- }
- }
- */
+extension CreateTweetView{
+    //MARK: Convert UIImage to SwiftUI image
+    func loadImage(){
+        guard let selectedImage = selectedImage else { return }
+        postImage = Image(uiImage: selectedImage)
+    }
+}

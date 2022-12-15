@@ -19,16 +19,6 @@ enum NetworkError: Error{
     case decodingError
 }
 
-struct LoginRequestBody: Codable{
-    let username: String
-    let password: String
-}
-
-struct LoginResponse: Codable{
-    let token: String?
-    let message: String?
-    let success: Bool?
-}
 
 public class AuthServices{
     public static var requestDomain = ""
@@ -42,7 +32,7 @@ public class AuthServices{
         makeRequest(urlString: urlString, reqBody: ["email": email, "password": password]) { result in
             switch result{
             case .success(let data):
-                debugPrint("Login success")
+                debugPrint("Login success", data)
                 completion(.success(data))
             case .failure(let error):
                 debugPrint(error.localizedDescription)

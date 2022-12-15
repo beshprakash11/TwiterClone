@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 extension UIApplication{
-    //MARK: Cancelthe Keyboard
+    //MARK: Cancel the Keyboard
     func endEditing(){
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }

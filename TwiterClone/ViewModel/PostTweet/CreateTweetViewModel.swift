@@ -9,13 +9,17 @@ import Foundation
 import SwiftUI
 
 class CreateTweetViewModel: ObservableObject{
-    func uploadPost(text: String){
+    func uploadPost(text: String, image: UIImage?){
         guard let user = AuthViewModel.shared.curretnUser else { return }
         
         RequestServices.requestDomain = POST_TWEET
         
         RequestServices.postTweet(text: text, user: user.name, username: user.username, userId: user.id) { result in
-            debugPrint("Tweets Results: ",result)
+            if let image = image {
+                if let id = result?["_id"]!{
+                    ImageUploader.uploadImage(paramName: "upload", fileName: "image1", image: image, urlPath: "/uploadTweetImage/\(id)")
+                }
+            }
         }
         
     }
