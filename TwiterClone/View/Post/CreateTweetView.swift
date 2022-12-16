@@ -22,7 +22,7 @@ struct CreateTweetView: View {
     @State var height = UIScreen.main.bounds.height
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        VStack{//:CreateTweet_VS
+        VStack(spacing: 5){//:CreateTweet_VS
             HStack{//:CT_HS
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -46,27 +46,26 @@ struct CreateTweetView: View {
                 
             }//:CT_HS
             MultilineTextField(text: $text)
-            ScrollView{
-                
-                
-                //Image picker
-                if postImage == nil{
-                    Button(action: {
-                        self.imagePickerPresented.toggle()
-                    }, label: {
-                        Image(systemName: "plus.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 70, height: 70)
-                            .clipped()
-                            .padding(.top)
-                            .foregroundColor(.black)
-                    }).sheet(isPresented: $imagePickerPresented) {
-                        loadImage()
-                    }content: {
-                        ImagePicker(image: $selectedImage)
-                    }
-                }else if let image = postImage{
+            //Image picker
+            if postImage == nil{
+                Button(action: {
+                    self.imagePickerPresented.toggle()
+                }, label: {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70, height: 70)
+                        .clipped()
+                        .padding(.top)
+                        .foregroundColor(.black)
+                }).sheet(isPresented: $imagePickerPresented) {
+                    loadImage()
+                }content: {
+                    ImagePicker(image: $selectedImage)
+                }
+            }
+            if let image = postImage{
+                ScrollView{
                     VStack{
                         HStack(alignment: .top) {
                             image
@@ -80,7 +79,7 @@ struct CreateTweetView: View {
                         Spacer()
                     }
                 }
-            }//:INVS
+            }
         }//:CreateTweet_VS
         .padding()
     }

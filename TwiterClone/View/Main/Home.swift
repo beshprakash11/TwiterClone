@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct Home: View {
+    @Binding var x : CGFloat
     @State var selectedIndex = 0
     @State var showCreateTweet = false
     @State var text:String = ""
+    
+    let user: User
     var body: some View {
         VStack{
             ZStack{
                 TabView{
-                    Feed()
+                    Feed(user: user)
                         .onTapGesture {
                             self.selectedIndex = 0
                         }
@@ -109,8 +112,10 @@ struct Home: View {
     }
 }
 
+/*
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
     }
 }
+*/

@@ -18,7 +18,7 @@ struct MainView: View {
                 ZStack(alignment: Alignment(horizontal: .leading, vertical: .center), content: {
                     VStack {
                         TapBar(x: $x)
-                        Home()
+                        Home(x: $x, user: user)
                     }
                     .offset(x: x + width)
                     SlideMenu()

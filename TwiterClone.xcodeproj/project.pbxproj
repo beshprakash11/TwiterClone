@@ -24,6 +24,9 @@
 		96906206293098F2003044C8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96906205293098F2003044C8 /* SearchView.swift */; };
 		9690620829309901003044C8 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690620729309901003044C8 /* NotificationsView.swift */; };
 		9690620A2930990B003044C8 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969062092930990B003044C8 /* MessagesView.swift */; };
+		969578F7294C3CA3000FD022 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969578F6294C3CA3000FD022 /* FeedViewModel.swift */; };
+		969578F9294C44A1000FD022 /* TweetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969578F8294C44A1000FD022 /* TweetCellViewModel.swift */; };
+		969578FC294C5163000FD022 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 969578FB294C5163000FD022 /* Kingfisher */; };
 		9696760D294998CF000BA716 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696760C294998CF000BA716 /* ImagePicker.swift */; };
 		9698794D2942F22D00881D77 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698794C2942F22D00881D77 /* WelcomeView.swift */; };
 		9698794F2942FEDC00881D77 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698794E2942FEDC00881D77 /* RegisterView.swift */; };
@@ -68,6 +71,8 @@
 		96906205293098F2003044C8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		9690620729309901003044C8 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		969062092930990B003044C8 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		969578F6294C3CA3000FD022 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		969578F8294C44A1000FD022 /* TweetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellViewModel.swift; sourceTree = "<group>"; };
 		9696760C294998CF000BA716 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		9698794C2942F22D00881D77 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9698794E2942FEDC00881D77 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -98,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969578FC294C5163000FD022 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +169,7 @@
 		969061F429308FA6003044C8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				969578F5294C3C92000FD022 /* Feed */,
 				9699B536294857AC00B488E4 /* PostTweet */,
 				96CA29A52947263E00A58F05 /* Authentication */,
 			);
@@ -287,6 +294,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		969578F5294C3C92000FD022 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				969578F6294C3CA3000FD022 /* FeedViewModel.swift */,
+				969578F8294C44A1000FD022 /* TweetCellViewModel.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		9699B536294857AC00B488E4 /* PostTweet */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +343,9 @@
 			dependencies = (
 			);
 			name = TwiterClone;
+			packageProductDependencies = (
+				969578FB294C5163000FD022 /* Kingfisher */,
+			);
 			productName = TwiterClone;
 			productReference = 969061E229308950003044C8 /* TwiterClone.app */;
 			productType = "com.apple.product-type.application";
@@ -355,6 +374,9 @@
 				Base,
 			);
 			mainGroup = 969061D929308950003044C8;
+			packageReferences = (
+				969578FA294C5163000FD022 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 969061E329308950003044C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -381,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969578F9294C44A1000FD022 /* TweetCellViewModel.swift in Sources */,
 				96A4174329405FBB00D08107 /* MenuButton.swift in Sources */,
 				961609BE2938831B0013B783 /* TweetCellView.swift in Sources */,
 				96A4174529408D8200D08107 /* UserProfile.swift in Sources */,
@@ -419,6 +442,7 @@
 				9690620829309901003044C8 /* NotificationsView.swift in Sources */,
 				96987953294307E200881D77 /* SecureAuthTextField.swift in Sources */,
 				96A2CDA22941ADA7006D48DB /* TabButton.swift in Sources */,
+				969578F7294C3CA3000FD022 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +643,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		969578FA294C5163000FD022 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		969578FB294C5163000FD022 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 969578FA294C5163000FD022 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 969061DA29308950003044C8 /* Project object */;
 }

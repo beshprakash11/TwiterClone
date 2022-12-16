@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TweetCellView: View {
-    var tweet: String
-    var tweetImage: String?
+    @ObservedObject var viewModel: TweetCellViewModel
+    
+    init(viewModel: TweetCellViewModel){
+        self.viewModel = viewModel
+    }
     var body: some View {
         VStack{//:VS
             //MARK: Twit View
@@ -20,25 +24,28 @@ struct TweetCellView: View {
                     .frame(width: 55, height: 55)
                     .clipShape(Circle())
                 VStack(alignment: .leading,spacing: 10) {
-                    Text("Besh P.Yogi")
+                    Text("\(self.viewModel.tweet.username)")
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
-                    Text("@BP.Yogi")
+                    Text("@\(self.viewModel.tweet.username)")
                         .foregroundColor(.gray)
-                    Text(tweet)
+                    Text(self.viewModel.tweet.text)
                         .frame(maxHeight: 100, alignment: .top)
                     
-                    if let image = tweetImage{
-                          GeometryReader{proxy in
-                                Image(image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: proxy.frame(in: .global).width, height: 350)
-                                    .cornerRadius(15)
-                        }//:Geometry Reader
-                        .frame(height: 350)
+                    if let imageId = viewModel.tweet.id {
+                        if viewModel.tweet.image == "true"{
+                            GeometryReader{proxy in
+                                  KFImage(URL(string: TWEET_IMAGE+"\(imageId)/image"))
+                                      .resizable()
+                                      .aspectRatio(contentMode: .fill)
+                                      .frame(width: proxy.frame(in: .global).width, height: 250)
+                                      .cornerRadius(15)
+                          }//:Geometry Reader
+                          .frame(height: 250)
+                        }
                     }
                 }
+                Spacer()
             })//:HS
             //Cell Bottom
             HStack(spacing: 50, content: {
@@ -70,10 +77,5 @@ struct TweetCellView: View {
     }
 }
 
-struct TweetCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        TweetCellView(tweet: sampleText)
-    }
-}
 
 var sampleText = "Robotics is an interdisciplinary branch of computer science and engineering.[1] Robotics involves design, construction, operation, and use of robots. The goal of robotics is to design machines that can help and assist humans. Robotics integrates fields of mechanical engineering, electrical engineering, information engineering, mechatronics, electronics, bioengineering, computer engineering, control engineering, software engineering, mathematics, etc."
