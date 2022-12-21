@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+var menuButton = ["Profile", "Lists", "Topics", "Bookmarks", "Moments"]
 
 struct SlideMenu: View {
+    @ObservedObject var viewModel: AuthViewModel
     @State var show:Bool = true
-    var menuButton = ["Profile", "Lists", "Topics", "Bookmarks", "Moments"]
+    
     var edges = UIApplication.shared.windows.first?.safeAreaInsets
     @State var width = UIScreen.main.bounds.width
     var body: some View {
@@ -18,19 +20,25 @@ struct SlideMenu: View {
             HStack(spacing: 0, content: {
                 //Top Slide
                 VStack(alignment: .leading, content: {
-                    Image("logo")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .clipShape(Circle())
+                    NavigationLink(destination: UserProfile(user: viewModel.curretnUser!).navigationBarHidden(true), label: {
+                        Image("logo")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .clipShape(Circle())
+                    })
+                    
                     //MARK: Follower&Username
                     HStack(alignment: .top, spacing: 12, content: {
                         //:UserName
                         VStack(alignment: .leading, spacing: 12, content: {
-                            Text("Besh")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundColor(.black)
-                            Text("@yogibesh")
+                            NavigationLink(destination: UserProfile(user: viewModel.curretnUser!), label: {
+                                Text(viewModel.curretnUser!.username)
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                            })
+                            
+                            Text("@\(viewModel.curretnUser!.username)")
                                 .foregroundColor(.gray)
                             //:Follower
                             HStack(spacing: 20, content: {
@@ -146,6 +154,6 @@ struct SlideMenu: View {
 
 struct SlideMenu_Previews: PreviewProvider {
     static var previews: some View {
-        SlideMenu()
+        SlideMenu(viewModel: AuthViewModel.shared)
     }
 }
