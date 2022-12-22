@@ -9,11 +9,21 @@ import SwiftUI
 
 struct UserProfile: View {
     let user: User
+    
+    @ObservedObject var viewModel: ProfileViewModel
     @State var offset: CGFloat = 0
     @State var titleOffset: CGFloat = 0
     @State var currentTab = "Tweets"
     @State var tabBarOffset: CGFloat = 0
     @Namespace var animation
+    
+    //Edit Profile
+    @State var editProfileShow: Bool = false
+    
+    init(user:User){
+        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
+    }
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
@@ -69,7 +79,7 @@ struct UserProfile: View {
                             .scaleEffect(getScale())
                         Spacer()
                         Button(action: {
-                            
+                            self.editProfileShow.toggle()
                         }, label: {
                             Text("Edit Profile")
                                 .foregroundColor(.blue)
@@ -77,6 +87,11 @@ struct UserProfile: View {
                                 .padding(.horizontal)
                                 .background(Capsule().stroke(.blue, lineWidth: 1.5))
                         })
+                        .sheet(isPresented: $editProfileShow){
+                            
+                        } content:{
+                            EditProfileView(user: $viewModel.user)
+                        }
                     }//:profile pic
                     .padding(.top, -25)
                     .padding(.bottom, -10)

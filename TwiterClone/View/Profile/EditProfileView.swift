@@ -13,17 +13,30 @@ struct EditProfileView: View {
     @State private var selectedImage: UIImage?
     @State var imagePickerPresented: Bool = false
     
+    //Bind user
+    @Binding var user: User
+    
     //User input field
-    @State var name = ""
-    @State var location = ""
-    @State var bio = ""
-    @State var website = ""
+    @State var name: String
+    @State var location: String
+    @State var bio: String
+    @State var website: String
+    
+    @Environment(\.presentationMode) var presentationMode
+    init(user: Binding<User>){
+        self._user = user
+        self._name = State(initialValue: self._user.name.wrappedValue ?? "")
+        self._location = State(initialValue: self._user.location.wrappedValue ?? "")
+        self._bio = State(initialValue: self._user.bio.wrappedValue ?? "")
+        self._website = State(initialValue: self._user.website.wrappedValue ?? "")
+        
+    }
     var body: some View {
         VStack{
             ZStack{
                 HStack{
                     Button(action: {
-                        
+                        self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Cancel")
                             .foregroundColor(.black)
@@ -98,6 +111,9 @@ struct EditProfileView: View {
                     }
                     Spacer()
                 }//:Profileimage HS
+                .onAppear{
+                    KingfisherManager.shared.cache.clearMemoryCache()
+                }
                 .padding(.top, -25)
                 .padding(.bottom, -10)
                 
@@ -172,12 +188,6 @@ struct EditProfileView: View {
             
         }//VSH
         .background(.white)
-    }
-}
-
-struct EditProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfileView()
     }
 }
 

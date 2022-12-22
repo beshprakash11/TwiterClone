@@ -19,12 +19,12 @@ struct User: Decodable, Identifiable {
     }
     
     let username: String
-    let name: String
+    var name: String
     let email: String
-    let location: String?
-    let bio: String?
-    let website: String?
-    let avatarExists: String?
-    let followers: [String]
-    let followings: [String]
+    var location: String?
+    var bio: String?
+    var website: String?
+    var avatarExists: String?
+    var followers: [String]
+    var followings: [String]
 }
