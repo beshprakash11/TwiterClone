@@ -87,11 +87,9 @@ struct UserProfile: View {
                                 .padding(.horizontal)
                                 .background(Capsule().stroke(.blue, lineWidth: 1.5))
                         })
-                        .sheet(isPresented: $editProfileShow){
-                            
-                        } content:{
+                        .sheet(isPresented: $editProfileShow, content: {
                             EditProfileView(user: $viewModel.user)
-                        }
+                        })
                     }//:profile pic
                     .padding(.top, -25)
                     .padding(.bottom, -10)

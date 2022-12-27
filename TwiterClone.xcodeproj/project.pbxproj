@@ -32,6 +32,7 @@
 		969578F9294C44A1000FD022 /* TweetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969578F8294C44A1000FD022 /* TweetCellViewModel.swift */; };
 		969578FC294C5163000FD022 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 969578FB294C5163000FD022 /* Kingfisher */; };
 		9696760D294998CF000BA716 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696760C294998CF000BA716 /* ImagePicker.swift */; };
+		9697F4572955792D00C79B68 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F4562955792D00C79B68 /* EditProfileViewModel.swift */; };
 		9698794D2942F22D00881D77 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698794C2942F22D00881D77 /* WelcomeView.swift */; };
 		9698794F2942FEDC00881D77 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698794E2942FEDC00881D77 /* RegisterView.swift */; };
 		96987951294304E800881D77 /* CustomAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96987950294304E800881D77 /* CustomAuthTextField.swift */; };
@@ -82,6 +83,7 @@
 		969578F6294C3CA3000FD022 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		969578F8294C44A1000FD022 /* TweetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellViewModel.swift; sourceTree = "<group>"; };
 		9696760C294998CF000BA716 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9697F4562955792D00C79B68 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		9698794C2942F22D00881D77 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9698794E2942FEDC00881D77 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		96987950294304E800881D77 /* CustomAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthTextField.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				96920FDD29541D2500BDD68C /* ProfileViewModel.swift */,
+				9697F4562955792D00C79B68 /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				9647C8A2293DD49700B66419 /* NotificationCell.swift in Sources */,
 				9690620829309901003044C8 /* NotificationsView.swift in Sources */,
 				96987953294307E200881D77 /* SecureAuthTextField.swift in Sources */,
+				9697F4572955792D00C79B68 /* EditProfileViewModel.swift in Sources */,
 				96A2CDA22941ADA7006D48DB /* TabButton.swift in Sources */,
 				969578F7294C3CA3000FD022 /* FeedViewModel.swift in Sources */,
 			);
