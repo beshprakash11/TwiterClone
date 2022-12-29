@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import UIKit
 
 struct EditProfileView: View {
     @Environment(\.presentationMode) var mode
@@ -49,7 +50,13 @@ struct EditProfileView: View {
                     })
                     Spacer()
                     Button(action: {
-                        self.viewModel.uploadUserData(name: name, bio: bio, website: website, location: location)
+                        if(selectedImage != nil){
+                            self.viewModel.uploadProfileImage(text: "text", image: selectedImage)
+                            self.viewModel.uploadUserData(name: name, bio: bio, website: website, location: location)
+                            KingfisherManager.shared.cache.clearCache()
+                        }else{
+                            self.viewModel.uploadUserData(name: name, bio: bio, website: website, location: location)
+                        }
                     }, label: {
                         Text("Save")
                             .foregroundColor(.black)
@@ -75,7 +82,7 @@ struct EditProfileView: View {
                         Button(action: {
                             self.imagePickerPresented.toggle()
                         }, label: {
-                            KFImage(URL(string: USER_BYID+"/id/avatar"))
+                            KFImage(URL(string: USER_BYID+"/\(self.viewModel.user.id)/avatar"))
                                 .resizable()
                                 .placeholder {
                                     Image(systemName: "person.circle.fill")
@@ -209,6 +216,7 @@ struct EditProfileView: View {
 extension EditProfileView{
     func loadImage(){
         guard let selectedImage = selectedImage else { return }
+        
         profileiage = Image(uiImage: selectedImage)
     }
 }

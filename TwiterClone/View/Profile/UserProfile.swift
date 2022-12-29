@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UserProfile: View {
     let user: User
@@ -68,7 +69,14 @@ struct UserProfile: View {
                 VStack(alignment: .leading){
                     //Profile pic
                     HStack{
-                        Image("logo")
+                        KFImage(URL(string: "http://localhost:3000/\(self.viewModel.user.id)/avatar"))
+                            .placeholder({
+                                Image("logo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 75, height: 75)
+                                    .clipShape(Circle())
+                            })
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 75, height: 75)
@@ -96,44 +104,78 @@ struct UserProfile: View {
                     .zIndex(1)
                     
                     //MARK: Profile Description
-                    VStack(alignment: .leading, spacing: 8, content: {
-                        Text(self.user.username)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.primary)
-                        Text("@\(self.user.username)")
-                            .foregroundColor(.gray)
-                        Text("Don't know what I don't know. So, I try to figure out what I don't know. ")
-                        
-                        //Follower and details
-                        HStack(spacing: 5, content: {
-                            Text("13")
+                    HStack{
+                        VStack(alignment: .leading, spacing: 8, content: {
+                            Text(self.viewModel.user.username)
+                                .font(.title2)
+                                .fontWeight(.bold)
                                 .foregroundColor(.primary)
-                                .fontWeight(.semibold)
-                            Text("Fllowers")
+                            Text("@\(self.viewModel.user.username)")
                                 .foregroundColor(.gray)
-                            Text("680")
-                                .foregroundColor(.primary)
-                                .fontWeight(.semibold)
-                                .padding(.leading, 10)
-                            Text("Following")
-                                .foregroundColor(.gray)
-                        })
-                        .padding(.top, 8)
-                    })//:Profile Description
-                    .overlay (
-                        GeometryReader{ proxy -> Color in
-                            let minY = proxy.frame(in: .global).minY
+                            Text(viewModel.user.bio ?? "Don't know what I don't know. So, I try to figure out what I don't know. ")
+                            //user location
+                            HStack(spacing: 8) {
+                                //location
+                                if let userLocation = viewModel.user.location{
+                                    if (userLocation != ""){
+                                        HStack(spacing: 2) {
+                                            Image(systemName: "mappin.circle.fill")
+                                                .frame(width: 24, height: 24)
+                                                .foregroundColor(.gray)
+                                            Text(userLocation)
+                                                .foregroundColor(.gray)
+                                                .font(.system(size: 14))
+                                        }
+                                    }
+                                }
+                                
+                                //website
+                                if let userWebsite = viewModel.user.website{
+                                    if (userWebsite != ""){
+                                        HStack(spacing: 2) {
+                                            Image(systemName: "link")
+                                                .frame(width: 24, height: 24)
+                                                .foregroundColor(.gray)
+                                            Text(userWebsite)
+                                                .foregroundColor(Color("bg"))
+                                                .font(.system(size: 14))
+                                        }
+                                    }
+                                }
+                                
+                            }//:UL HS
                             
-                            DispatchQueue.main.async {
-                                self.titleOffset = minY
-                            }
-                            
-                            return Color.clear
-                        }//:Geometry
-                            .frame(width: 0, height: 0), alignment: .top
-                    )
-                    
+                            //Follower and details
+                            HStack(spacing: 5, content: {
+                                Text("13")
+                                    .foregroundColor(.primary)
+                                    .fontWeight(.semibold)
+                                Text("Fllowers")
+                                    .foregroundColor(.gray)
+                                Text("680")
+                                    .foregroundColor(.primary)
+                                    .fontWeight(.semibold)
+                                    .padding(.leading, 10)
+                                Text("Following")
+                                    .foregroundColor(.gray)
+                            })
+                            .padding(.top, 8)
+                        })//:Profile Description
+                        .padding(.leading, 8)
+                        .overlay (
+                            GeometryReader{ proxy -> Color in
+                                let minY = proxy.frame(in: .global).minY
+                                
+                                DispatchQueue.main.async {
+                                    self.titleOffset = minY
+                                }
+                                
+                                return Color.clear
+                            }//:Geometry
+                                .frame(width: 0, height: 0), alignment: .top
+                        )
+                        Spacer()
+                    }//:HS
                     //MARK: Main View
                     VStack(spacing: 0, content: {
                         ScrollView(.horizontal, showsIndicators: false, content: {
