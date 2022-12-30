@@ -19,3 +19,4 @@ let USER_BYID = BASE_URL + "users/"
 //MARK: Tweet URL
 let POST_TWEET = BASE_URL + "tweets"
 let TWEET_IMAGE = BASE_URL + "tweets/"
+let TWEET_BYID = BASE_URL + "tweets/"
