@@ -27,7 +27,11 @@ struct ImageUploader {
         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
         data.append("Content-Disposition: form-data; name=\"\(paramName)\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
         data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
-        data.append(image.pngData()!)
+        
+        if let imageData = image.jpegData(compressionQuality: 0.1){
+            data.append(imageData)
+        }
+        //data.append(image.pngData()!)
         
         data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
         
