@@ -17,12 +17,25 @@ struct TweetCellView: View {
     var body: some View {
         VStack{//:VS
             //MARK: Twit View
+           
             HStack(alignment: .top, spacing: 10,content: {
-                Image("logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 55, height: 55)
-                    .clipShape(Circle())
+                if let user = viewModel.user{
+                    NavigationLink(destination: UserProfile(user: user)) {
+                        KFImage(URL(string:USER_BYID + "\(self.viewModel.tweet.userId)/avatar"))
+                            .placeholder({
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 55, height: 55)
+                                    .clipShape(Circle())
+                            })
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 55, height: 55)
+                            .clipShape(Circle())
+                    }
+                }
+                
                 VStack(alignment: .leading,spacing: 10) {
                     Text("\(self.viewModel.tweet.username)")
                         .fontWeight(.bold)

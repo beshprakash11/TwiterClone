@@ -69,7 +69,7 @@ struct UserProfile: View {
                 VStack(alignment: .leading){
                     //Profile pic
                     HStack{
-                        KFImage(URL(string: "http://localhost:3000/\(self.viewModel.user.id)/avatar"))
+                        KFImage(URL(string:USER_BYID + "\(self.viewModel.user.id)/avatar"))
                             .placeholder({
                                 Image("logo")
                                     .resizable()
