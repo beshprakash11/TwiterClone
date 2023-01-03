@@ -18,6 +18,8 @@ struct Tweet: Identifiable, Decodable{
     let username: String
     let user: String
     let image: String?
+    var likes: [String]
+    var didLike: Bool? = false
     
     
 }

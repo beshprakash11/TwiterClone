@@ -15,7 +15,7 @@ struct Feed: View {
         ScrollView(.vertical, showsIndicators: false){
             LazyVStack(alignment: .leading,spacing: 10) {//MSG_VS
                 ForEach(viewModel.tweets){ tweet in
-                    TweetCellView(viewModel: TweetCellViewModel(tweet: tweet))
+                    TweetCellView(viewModel: TweetCellViewModel(tweet: tweet, currentUser: user))
                 }
             }//:MSG_VS
             .padding(.top)

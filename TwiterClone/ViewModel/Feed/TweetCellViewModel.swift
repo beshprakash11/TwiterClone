@@ -10,10 +10,12 @@ import SwiftUI
 class TweetCellViewModel: ObservableObject{
     @Published var tweet: Tweet
     @Published var user: User?
-    
-    init(tweet: Tweet){
+    let currentUser: User
+    init(tweet: Tweet, currentUser: User){
         self.tweet = tweet
+        self.currentUser = currentUser
         fetchUser(userId: tweet.user)
+        checkIfUserLikedPost()
     }
     
     func fetchUser(userId: String){
@@ -33,10 +35,30 @@ class TweetCellViewModel: ObservableObject{
     }
     
     func like(){
+        RequestServices.requestDomain = TWEET_BYID + "\(self.tweet.id)/like"
         
+        RequestServices.likeTweet(id: self.tweet.id) { result in
+            debugPrint("The tweet has been liked.")
+        }
+        
+        self.tweet.didLike = true
     }
     
     func unlike(){
+        RequestServices.requestDomain = TWEET_BYID + "\(self.tweet.id)/unlike"
         
+        RequestServices.likeTweet(id: self.tweet.id) { result in
+            debugPrint("The tweet has been liked.")
+        }
+        
+        self.tweet.didLike = false
+    }
+    
+    func checkIfUserLikedPost(){
+        if(self.tweet.likes.contains(self.currentUser.id)){
+            self.tweet.didLike = true
+        }else{
+            self.tweet.didLike = false
+        }
     }
 }

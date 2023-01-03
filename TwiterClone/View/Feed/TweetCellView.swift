@@ -11,6 +11,8 @@ import Kingfisher
 struct TweetCellView: View {
     @ObservedObject var viewModel: TweetCellViewModel
     
+    var didLike: Bool { return viewModel.tweet.didLike ?? false }
+    
     init(viewModel: TweetCellViewModel){
         self.viewModel = viewModel
     }
@@ -74,13 +76,25 @@ struct TweetCellView: View {
                     Image("Retweet").resizable().frame(width: 18, height: 14)
                 }).foregroundColor(.gray)
                 
-                //Retweet
-                Button(action: {}, label: {
-                    Image("love").resizable().frame(width: 18, height: 15)
+                //Like
+                Button(action: {
+                    if(self.didLike){
+                        self.viewModel.unlike()
+                    }else{
+                        self.viewModel.like()
+                    }
+                }, label: {
+                    if(self.didLike == false){
+                        Image("love").resizable().frame(width: 18, height: 15)
+                    }else{
+                        Image("love").resizable().renderingMode(.template).foregroundColor(.red).frame(width: 18, height: 15)
+                    }
                 }).foregroundColor(.gray)
                 
-                //Retweet
-                Button(action: {}, label: {
+                //unlike
+                Button(action: {
+                    
+                }, label: {
                     Image("upload").resizable().renderingMode(.template).frame(width: 18, height: 15)
                 }).foregroundColor(.gray)
                 

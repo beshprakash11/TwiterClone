@@ -32,6 +32,7 @@
 		969578F9294C44A1000FD022 /* TweetCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969578F8294C44A1000FD022 /* TweetCellViewModel.swift */; };
 		969578FC294C5163000FD022 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 969578FB294C5163000FD022 /* Kingfisher */; };
 		9696760D294998CF000BA716 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696760C294998CF000BA716 /* ImagePicker.swift */; };
+		9696C68F2963F9BB0005862D /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696C68E2963F9BB0005862D /* RefreshableScrollView.swift */; };
 		9697F4572955792D00C79B68 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9697F4562955792D00C79B68 /* EditProfileViewModel.swift */; };
 		9698794D2942F22D00881D77 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698794C2942F22D00881D77 /* WelcomeView.swift */; };
 		9698794F2942FEDC00881D77 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698794E2942FEDC00881D77 /* RegisterView.swift */; };
@@ -83,6 +84,7 @@
 		969578F6294C3CA3000FD022 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		969578F8294C44A1000FD022 /* TweetCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellViewModel.swift; sourceTree = "<group>"; };
 		9696760C294998CF000BA716 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9696C68E2963F9BB0005862D /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		9697F4562955792D00C79B68 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		9698794C2942F22D00881D77 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9698794E2942FEDC00881D77 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				96987952294307E200881D77 /* SecureAuthTextField.swift */,
 				969162272952E230001474F0 /* CustomProfileTextField.swift */,
 				969162292952E5EC001474F0 /* CustomProfileBioTextField.swift */,
+				9696C68E2963F9BB0005862D /* RefreshableScrollView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				9698794D2942F22D00881D77 /* WelcomeView.swift in Sources */,
 				9699073729431AB300090179 /* LoginView.swift in Sources */,
 				969061E629308950003044C8 /* TwiterCloneApp.swift in Sources */,
+				9696C68F2963F9BB0005862D /* RefreshableScrollView.swift in Sources */,
 				9691622A2952E5EC001474F0 /* CustomProfileBioTextField.swift in Sources */,
 				96CA299D2946F5EF00A58F05 /* AuthViewModel.swift in Sources */,
 				9647C8A2293DD49700B66419 /* NotificationCell.swift in Sources */,
