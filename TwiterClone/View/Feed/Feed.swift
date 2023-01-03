@@ -12,16 +12,24 @@ struct Feed: View {
     let user: User
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
-            LazyVStack(alignment: .leading,spacing: 10) {//MSG_VS
-                ForEach(viewModel.tweets){ tweet in
-                    TweetCellView(viewModel: TweetCellViewModel(tweet: tweet, currentUser: user))
-                }
-            }//:MSG_VS
-            .padding(.top)
-            .padding(.horizontal)
-            .zIndex(0)
-        }//FEED_SCV
+        RefreshableScrollView(content:
+            ScrollView(.vertical, showsIndicators: false){
+                LazyVStack(alignment: .leading,spacing: 10) {//MSG_VS
+                    ForEach(viewModel.tweets){ tweet in
+                        TweetCellView(viewModel: TweetCellViewModel(tweet: tweet, currentUser: user))
+                    }
+                }//:MSG_VS
+                .padding(.top)
+                .padding(.horizontal)
+                .zIndex(0)
+            }//FEED_SCV
+        ) { control in
+            DispatchQueue.main.async {
+                self.viewModel.fetchTweets()
+                control.endRefreshing()
+            }
+        }
+        
     }
 }
 
