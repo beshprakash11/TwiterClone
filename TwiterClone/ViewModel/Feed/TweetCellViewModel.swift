@@ -31,4 +31,12 @@ class TweetCellViewModel: ObservableObject{
             }
         }
     }
+    
+    func like(){
+        
+    }
+    
+    func unlike(){
+        
+    }
 }
