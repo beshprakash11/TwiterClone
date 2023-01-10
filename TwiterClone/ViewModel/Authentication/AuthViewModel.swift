@@ -77,7 +77,7 @@ class AuthViewModel: ObservableObject {
         AuthServices.requestDomain = USER_BYID+"\(userId)"
         
         //debugPrint("User by id", AuthServices.requestDomain)
-        AuthServices.fetchUser(id: userId) { result in
+        AuthServices.fetchUser() { result in
             switch result{
             case .success(let data):
                 guard let user = try? JSONDecoder().decode(User.self, from: data as! Data) else { return}

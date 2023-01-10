@@ -95,11 +95,11 @@ public class AuthServices{
     }
     
     //MARK: Fetch user services
-    static func fetchUser(id: String, completion: @escaping (_ result: Result<Data, AuthenticationError>) -> Void){
-        let urlString = URL(string: USER_BYID + "\(id)")!
+    static func fetchUser(completion: @escaping (_ result: Result<Data, AuthenticationError>) -> Void){
         
         //debugPrint(urlString)
-        var urlRequest = URLRequest(url: urlString)
+        let url = URL(string: requestDomain)!
+        var urlRequest = URLRequest(url: url)
         
         let session = URLSession.shared
         

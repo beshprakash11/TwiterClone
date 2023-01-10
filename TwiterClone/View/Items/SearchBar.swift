@@ -37,6 +37,7 @@ struct SearchBar: View {
                     .animation(.default)
             })
         }//:HS
+        .padding(.top, 10)
         .onTapGesture {
             isEditing = true
         }
