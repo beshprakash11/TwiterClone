@@ -52,6 +52,7 @@
 		96A4174329405FBB00D08107 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A4174229405FBB00D08107 /* MenuButton.swift */; };
 		96A4174529408D8200D08107 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A4174429408D8200D08107 /* UserProfile.swift */; };
 		96A417472940955600D08107 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A417462940955600D08107 /* BlurView.swift */; };
+		96BA4E9C296E76D2006462A6 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BA4E9B296E76D2006462A6 /* Notification.swift */; };
 		96CA299D2946F5EF00A58F05 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA299C2946F5EF00A58F05 /* AuthViewModel.swift */; };
 		96CA299F2946F5FC00A58F05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA299E2946F5FC00A58F05 /* User.swift */; };
 		96CA29A12947058C00A58F05 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CA29A02947058C00A58F05 /* AuthServices.swift */; };
@@ -105,6 +106,7 @@
 		96A4174229405FBB00D08107 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		96A4174429408D8200D08107 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		96A417462940955600D08107 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		96BA4E9B296E76D2006462A6 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		96CA299C2946F5EF00A58F05 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		96CA299E2946F5FC00A58F05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96CA29A02947058C00A58F05 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				96CA299E2946F5FC00A58F05 /* User.swift */,
 				9699B5342948567300B488E4 /* Tweet.swift */,
+				96BA4E9B296E76D2006462A6 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				9647C89E293DCD8100B66419 /* SearchUserCell.swift in Sources */,
 				96920FDE29541D2500BDD68C /* ProfileViewModel.swift in Sources */,
 				9698794F2942FEDC00881D77 /* RegisterView.swift in Sources */,
+				96BA4E9C296E76D2006462A6 /* Notification.swift in Sources */,
 				9647C89C293DC1D400B66419 /* SearchBar.swift in Sources */,
 				96906204293098E6003044C8 /* Feed.swift in Sources */,
 				96987951294304E800881D77 /* CustomAuthTextField.swift in Sources */,

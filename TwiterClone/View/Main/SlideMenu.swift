@@ -87,7 +87,7 @@ struct SlideMenu: View {
                         Divider()
                         
                         Button(action: {
-                            
+                            AuthViewModel.shared.logout()
                         }, label: {
                             Text("Settings and Privacy")
                                 .foregroundColor(.black)

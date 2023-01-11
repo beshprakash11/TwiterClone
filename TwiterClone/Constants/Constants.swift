@@ -20,3 +20,7 @@ let USER_BYID = BASE_URL + "users/"
 let POST_TWEET = BASE_URL + "tweets"
 let TWEET_IMAGE = BASE_URL + "tweets/"
 let TWEET_BYID = BASE_URL + "tweets/"
+
+
+//MARK: Notifications
+let NOTIFICATION_URL = BASE_URL + "/notifications"

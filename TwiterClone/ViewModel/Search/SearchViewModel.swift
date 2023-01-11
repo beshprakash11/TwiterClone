@@ -28,4 +28,12 @@ class SSearchViewModel: ObservableObject{
             }
         }
     }
+    
+    //Search users
+    func filterUsers(_ query: String) -> [User]{
+        let lowercasedQuery = query.lowercased()
+        
+        return user.filter({ $0.name.lowercased().contains(lowercasedQuery) || $0.username.lowercased().contains(lowercasedQuery) })
+        
+    }
 }

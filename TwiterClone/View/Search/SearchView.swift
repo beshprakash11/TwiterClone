@@ -11,19 +11,24 @@ struct SearchView: View {
     @State var text = ""
     @State var isEditing = true
     
+    var users: [User] {
+        return text.isEmpty ? viewModel.user : viewModel.filterUsers(text)
+    }
+    
     @ObservedObject var viewModel = SSearchViewModel()
     var body: some View {
-        VStack{            
+        VStack{
             ScrollView{
                 SearchBar(text: $text, isEditing: $isEditing)
                     .padding(.horizontal)
                 
                 LazyVStack{
-                    ForEach(self.viewModel.user){user in
-                        SearchUserCell(user: user)
-                            .padding(.leading)
-                    }
-                    
+                    ForEach(self.users){user in
+                        NavigationLink(destination: UserProfile(user: user)) {
+                            SearchUserCell(user: user)
+                                .padding(.leading)
+                        }
+                    }                    
                 }
             }//SV
         }//VS
