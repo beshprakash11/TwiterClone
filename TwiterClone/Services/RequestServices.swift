@@ -49,7 +49,7 @@ public class RequestServices{
         task.resume()
     }
     
-    static func fetchTweets(completion: @escaping (_ result: Result<Data?, NetworkError>) -> Void){
+    static func fetchData(completion: @escaping (_ result: Result<Data?, NetworkError>) -> Void){
         let url = URL(string: requestDomain)!
         let session = URLSession.shared
         var request = URLRequest(url: url)

@@ -50,7 +50,7 @@ struct Home: View {
                             }
                         }
                         .tag(1)
-                    NotificationsView()
+                    NotificationsView(user: user)
                         .onTapGesture {
                             self.selectedIndex = 2
                         }
